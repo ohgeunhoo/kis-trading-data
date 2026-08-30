@@ -39,3 +39,4 @@ def schedule_trading():
 
 if __name__ == "__main__":
     schedule_trading()
+# Updated for deployment
