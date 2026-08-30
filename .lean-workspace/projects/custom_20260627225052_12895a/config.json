@@ -1,0 +1,17 @@
+{
+  "algorithm-language": "Python",
+  "strategy_type": "custom",
+  "strategy_params": {},
+  "strategy_id": null,
+  "strategy_name": null,
+  "market_type": "krx",
+  "currency": "KRW",
+  "parameters": {
+    "symbols": "069500,133690,114260,153130,132030",
+    "start_date": "2021-06-27",
+    "end_date": "2026-06-27",
+    "initial_capital": "100000000",
+    "commission_rate": "0.00015",
+    "tax_rate": "0.0023"
+  }
+}

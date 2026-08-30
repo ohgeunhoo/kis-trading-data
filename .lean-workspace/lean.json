@@ -1,0 +1,5 @@
+{
+  "data-folder": ".lean-workspace/data",
+  "results-destination-folder": ".lean-workspace/results",
+  "engine-type": "local"
+}

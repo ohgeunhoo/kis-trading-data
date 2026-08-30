@@ -1,0 +1,20 @@
+2026-08-17 14:29:05 - KISTradingSystem - INFO - KIS 클라이언트 초기화 (모의투자: True)
+2026-08-17 14:29:05 - KISTradingSystem - INFO - 계좌: 50192****
+2026-08-17 14:29:43 - KISTradingSystem - INFO - 🔐 KIS API 인증 중...
+2026-08-17 14:29:43 - KISTradingSystem - ERROR - ❌ 인증 실패: HTTPSConnectionPool(host='openapivts.ksmartform.com', port=443): Max retries exceeded with url: /openapi/v1/oauth2/token (Caused by NameResolutionError("HTTPSConnection(host='openapivts.ksmartform.com', port=443): Failed to resolve 'openapivts.ksmartform.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-08-17 14:32:46 - KISTradingSystem - DEBUG - 💰 계좌 잔액 조회 중...
+2026-08-17 14:32:46 - KISTradingSystem - ERROR - ❌ 잔액 조회 실패: HTTPSConnectionPool(host='openapivts.ksmartform.com', port=443): Max retries exceeded with url: /openapi/v1/uapi/domestic-stock/v1/trading/inquire-account?CANO=50192580&ACNT_PRDT_CD=01&AFHR_FLPR_YN=N&OFL_YN=&INQR_DVSN=02&UNPR_DVSN=01&FUND_STKQTY_DVSN=01&FNCG_AMT_AUTO_RDPT_YN=N&PRCS_DVSN=00&CTX_AREA_FK100=&CTX_AREA_NK100= (Caused by NameResolutionError("HTTPSConnection(host='openapivts.ksmartform.com', port=443): Failed to resolve 'openapivts.ksmartform.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2026-08-17 15:09:16 - KISTradingSystem - INFO - KIS 클라이언트 초기화 (모의투자: True)
+2026-08-17 15:09:16 - KISTradingSystem - INFO - 계좌: 50192****
+2026-08-17 15:09:16 - KISTradingSystem - INFO - ✅ 토큰 획득 (학교 kis_client.get_token 사용)
+2026-08-17 15:10:25 - KISTradingSystem - DEBUG - 💰 계좌 잔액 조회 중...
+2026-08-17 15:10:25 - KISTradingSystem - ERROR - 잔액 조회 실패: ERROR : INPUT_FIELD_NAME FUND_STTL_ICLD_YN
+2026-08-17 15:10:35 - KISTradingSystem - DEBUG - 💰 계좌 잔액 조회 중...
+2026-08-17 15:10:35 - KISTradingSystem - ERROR - 잔액 조회 실패: ERROR : INPUT_FIELD_NAME FUND_STTL_ICLD_YN
+2026-08-17 15:10:36 - KISTradingSystem - DEBUG - 💰 계좌 잔액 조회 중...
+2026-08-17 15:10:36 - KISTradingSystem - ERROR - 잔액 조회 실패: ERROR : INPUT_FIELD_NAME FUND_STTL_ICLD_YN
+2026-08-17 15:13:12 - KISTradingSystem - INFO - KIS 클라이언트 초기화 (모의투자: True)
+2026-08-17 15:13:12 - KISTradingSystem - INFO - 계좌: 50192****
+2026-08-17 15:13:12 - KISTradingSystem - INFO - ✅ 토큰 획득 (학교 kis_client.get_token 사용)
+2026-08-17 15:13:19 - KISTradingSystem - DEBUG - 💰 계좌 잔액 조회 중...
+2026-08-17 15:13:20 - KISTradingSystem - ERROR - 잔액 조회 실패: ERROR : INPUT_FIELD_NAME FUND_STTL_ICLD_YN

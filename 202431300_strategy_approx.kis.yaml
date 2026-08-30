@@ -1,0 +1,71 @@
+version: "1.0"
+
+metadata:
+  name: "202431300 전략 근사 변환"
+  description: "원본 Python 전략의 S&P500 60일 이동평균 국면 판단과 20일 모멘텀 필터를 Docker UI 업로드용 .kis.yaml로 근사 변환한 파일입니다. 원본의 다중 ETF 목표비중, ETF_02/ETF_04 상대수익률 선택, 4국면별 배분, ctx state 기반 리밸런싱은 .kis.yaml 스키마 한계로 포함하지 않습니다."
+  author: "202431300"
+  tags:
+    - approximate
+    - trend
+    - momentum
+    - sma60
+    - roc20
+
+strategy:
+  id: "strategy_202431300_approx"
+  category: "composite"
+
+  params:
+    trend_period:
+      default: 60
+      min: 20
+      max: 200
+      type: int
+      description: "원본 ETF_10 S&P500 국면 판단용 이동평균 기간"
+    momentum_period:
+      default: 20
+      min: 5
+      max: 120
+      type: int
+      description: "원본 중립장 세분화에 쓰인 최근 수익률 기간"
+  indicators:
+    - id: "sma"
+      alias: "sp500_ma60"
+      params:
+        period: "$trend_period"
+    - id: "roc"
+      alias: "sp500_ret20"
+      params:
+        period: "$momentum_period"
+
+  entry:
+    logic: "AND"
+    conditions:
+      - indicator: "close"
+        operator: "greater_than"
+        compare_to: "sp500_ma60"
+        compare_scalar: 1.005
+        compare_operation: "mul"
+      - indicator: "sp500_ret20"
+        operator: "greater_than"
+        value: 0
+
+  exit:
+    logic: "OR"
+    conditions:
+      - indicator: "close"
+        operator: "less_than"
+        compare_to: "sp500_ma60"
+        compare_scalar: 0.995
+        compare_operation: "mul"
+      - indicator: "sp500_ret20"
+        operator: "less_than"
+        value: 0
+
+risk:
+  stop_loss:
+    enabled: false
+  take_profit:
+    enabled: false
+  trailing_stop:
+    enabled: false

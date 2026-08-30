@@ -1,0 +1,23 @@
+[project]
+name = "kis-lab"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "ipykernel>=7.2.0",
+    "jupyterlab>=4.5.0",
+    "koreanize-matplotlib>=0.1.1",
+    "matplotlib>=3.10.9",
+    "pandas>=3.0.3",
+    "python-dotenv>=1.2.2",
+    "requests>=2.34.2",
+    "rich>=15.0.0",
+    "websocket-client>=1.9.0",
+]
+
+# VS Code Pylance/Pyright 설정 — 프로젝트는 Python 3.12 대상.
+# pythonVersion을 명시해 `str | None` 같은 유효한 3.12 문법이 "requires 3.10+"로
+# 잘못 표시되는 것을 막고, .venv를 가리켜 dotenv·pandas 등 import를 해석하게 한다.
+[tool.pyright]
+pythonVersion = "3.12"
+venvPath = "."
+venv = ".venv"

@@ -1,0 +1,15 @@
+{
+  "servers": {
+    "kis-code-assistant": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Users/ohgeunhoo/Documents/Projects/open-trading-api/MCP/KIS Code Assistant MCP",
+        "run",
+        "server.py",
+        "--stdio"
+      ]
+    }
+  }
+}
