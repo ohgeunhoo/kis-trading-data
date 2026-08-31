@@ -3,8 +3,7 @@ import streamlit as st
 import pandas as pd
 import json
 import requests
-from datetime import datetime
-import pytz
+from datetime import datetime, timedelta
 
 # 페이지 설정
 st.set_page_config(
@@ -68,6 +67,12 @@ def load_data_from_github():
         st.warning(f"trade_history.json 로드 실패: {e}")
     
     return data
+
+def get_kst_time():
+    """UTC+9 시간대(한국시간)로 현재 시간을 반환합니다"""
+    utc_now = datetime.utcnow()
+    kst = utc_now + timedelta(hours=9)
+    return kst
 
 # 제목
 st.title("📊 KIS 자동매매 대시보드")
@@ -178,7 +183,6 @@ else:
     st.markdown("---")
     
     # 마지막 업데이트
-    kst = pytz.timezone('Asia/Seoul')
-    current_time = datetime.now(kst).strftime('%Y-%m-%d %H:%M:%S')
+    current_time = get_kst_time().strftime('%Y-%m-%d %H:%M:%S')
     st.caption(f"🔄 마지막 업데이트: {current_time} | 60초마다 자동 새로고침")
 
