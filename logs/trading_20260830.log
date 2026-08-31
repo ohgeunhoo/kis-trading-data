@@ -337,3 +337,58 @@
 2026-08-30 15:44:11 - KISTradingSystem - WARNING - 설치: pip install apscheduler
 2026-08-30 15:46:40 - KISTradingSystem - WARNING - APScheduler 미설치 - 스케줄링 미활성화
 2026-08-30 15:46:40 - KISTradingSystem - WARNING - 설치: pip install apscheduler
+2026-08-31 21:55:23 - KISTradingSystem - INFO - KIS 클라이언트 초기화 (모의투자: True)
+2026-08-31 21:55:29 - KISTradingSystem - INFO - 🔐 KIS API 인증 중...
+2026-08-31 21:55:29 - KISTradingSystem - INFO - ✅ 인증 성공 (토큰: eyJ0eXAiOi...)
+2026-08-31 21:55:32 - KISTradingSystem - DEBUG - 💰 계좌 잔액 조회 중...
+2026-08-31 21:55:32 - KISTradingSystem - INFO - ✅ 잔액 조회: 보유 종목 1개
+2026-08-31 21:55:36 - KISTradingSystem - DEBUG - 📊 가격 조회 중: 091160
+2026-08-31 21:55:36 - KISTradingSystem - DEBUG - 가격: 091160 = ₩124,680
+2026-08-31 21:55:36 - KISTradingSystem - DEBUG - 📊 가격 조회 중: 305720
+2026-08-31 21:55:36 - KISTradingSystem - ERROR - ❌ 가격 조회 실패 (305720): 500 Server Error: Internal Server Error for url: https://openapivts.koreainvestment.com:29443/uapi/domestic-stock/v1/quotations/inquire-price?fid_cond_mrkt_div_code=J&fid_input_iscd=305720
+2026-08-31 21:55:36 - KISTradingSystem - DEBUG - 📊 가격 조회 중: 279530
+2026-08-31 21:55:36 - KISTradingSystem - DEBUG - 가격: 279530 = ₩17,670
+2026-08-31 21:55:36 - KISTradingSystem - DEBUG - 📊 가격 조회 중: 133690
+2026-08-31 21:55:37 - KISTradingSystem - ERROR - ❌ 가격 조회 실패 (133690): 500 Server Error: Internal Server Error for url: https://openapivts.koreainvestment.com:29443/uapi/domestic-stock/v1/quotations/inquire-price?fid_cond_mrkt_div_code=J&fid_input_iscd=133690
+2026-08-31 21:55:37 - KISTradingSystem - DEBUG - 📊 가격 조회 중: 143850
+2026-08-31 21:55:37 - KISTradingSystem - ERROR - ❌ 가격 조회 실패 (143850): 500 Server Error: Internal Server Error for url: https://openapivts.koreainvestment.com:29443/uapi/domestic-stock/v1/quotations/inquire-price?fid_cond_mrkt_div_code=J&fid_input_iscd=143850
+2026-08-31 21:55:37 - KISTradingSystem - DEBUG - 📊 가격 조회 중: 132030
+2026-08-31 21:55:37 - KISTradingSystem - ERROR - ❌ 가격 조회 실패 (132030): 500 Server Error: Internal Server Error for url: https://openapivts.koreainvestment.com:29443/uapi/domestic-stock/v1/quotations/inquire-price?fid_cond_mrkt_div_code=J&fid_input_iscd=132030
+2026-08-31 21:55:37 - KISTradingSystem - DEBUG - 📊 가격 조회 중: 114800
+2026-08-31 21:55:37 - KISTradingSystem - ERROR - ❌ 가격 조회 실패 (114800): 500 Server Error: Internal Server Error for url: https://openapivts.koreainvestment.com:29443/uapi/domestic-stock/v1/quotations/inquire-price?fid_cond_mrkt_div_code=J&fid_input_iscd=114800
+2026-08-31 21:55:53 - KISTradingSystem - INFO - 전략 엔진 초기화
+2026-08-31 21:55:57 - KISTradingSystem - INFO - 타겟 배분 (growth): {'ETF_09': 0.2, 'ETF_10': 0.25, 'ETF_04': 0.15, 'ETF_02': 0.15, 'ETF_07': 0.15, 'ETF_22': 0.1, 'ETF_29': 0.0}
+2026-08-31 21:55:59 - KISTradingSystem - INFO - 계산된 주문: 0개
+2026-08-31 21:56:03 - KISTradingSystem - INFO - KIS 클라이언트 초기화 (모의투자: True)
+2026-08-31 21:56:03 - KISTradingSystem - INFO - 전략 엔진 초기화
+2026-08-31 21:56:03 - KISTradingSystem - INFO - ======================================================================
+2026-08-31 21:56:03 - KISTradingSystem - INFO - 🚀 KIS 자동화 거래 시스템 시작
+2026-08-31 21:56:03 - KISTradingSystem - INFO - 📱 모드: 🎭 모의투자
+2026-08-31 21:56:03 - KISTradingSystem - INFO - 🕐 실행시간: 15:45 (한국시간)
+2026-08-31 21:56:03 - KISTradingSystem - INFO - 📊 사용 ETF: 7개
+2026-08-31 21:56:03 - KISTradingSystem - INFO - ======================================================================
+2026-08-31 21:56:03 - KISTradingSystem - INFO - 📍 거래 주기 시작
+2026-08-31 21:56:03 - KISTradingSystem - INFO - 🔐 KIS API 인증 중...
+2026-08-31 21:56:03 - KISTradingSystem - INFO - ✅ 인증 성공 (토큰: eyJ0eXAiOi...)
+2026-08-31 21:56:03 - KISTradingSystem - DEBUG - 💰 계좌 잔액 조회 중...
+2026-08-31 21:56:03 - KISTradingSystem - INFO - ✅ 잔액 조회: 보유 종목 1개
+2026-08-31 21:56:03 - KISTradingSystem - INFO - 현재 포지션: {}
+2026-08-31 21:56:03 - KISTradingSystem - DEBUG - 📊 가격 조회 중: 091160
+2026-08-31 21:56:03 - KISTradingSystem - DEBUG - 가격: 091160 = ₩124,680
+2026-08-31 21:56:03 - KISTradingSystem - DEBUG - 📊 가격 조회 중: 305720
+2026-08-31 21:56:04 - KISTradingSystem - DEBUG - 가격: 305720 = ₩15,505
+2026-08-31 21:56:04 - KISTradingSystem - DEBUG - 📊 가격 조회 중: 279530
+2026-08-31 21:56:04 - KISTradingSystem - ERROR - ❌ 가격 조회 실패 (279530): 500 Server Error: Internal Server Error for url: https://openapivts.koreainvestment.com:29443/uapi/domestic-stock/v1/quotations/inquire-price?fid_cond_mrkt_div_code=J&fid_input_iscd=279530
+2026-08-31 21:56:04 - KISTradingSystem - DEBUG - 📊 가격 조회 중: 133690
+2026-08-31 21:56:04 - KISTradingSystem - DEBUG - 가격: 133690 = ₩178,540
+2026-08-31 21:56:04 - KISTradingSystem - DEBUG - 📊 가격 조회 중: 143850
+2026-08-31 21:56:04 - KISTradingSystem - ERROR - ❌ 가격 조회 실패 (143850): 500 Server Error: Internal Server Error for url: https://openapivts.koreainvestment.com:29443/uapi/domestic-stock/v1/quotations/inquire-price?fid_cond_mrkt_div_code=J&fid_input_iscd=143850
+2026-08-31 21:56:04 - KISTradingSystem - DEBUG - 📊 가격 조회 중: 132030
+2026-08-31 21:56:04 - KISTradingSystem - ERROR - ❌ 가격 조회 실패 (132030): 500 Server Error: Internal Server Error for url: https://openapivts.koreainvestment.com:29443/uapi/domestic-stock/v1/quotations/inquire-price?fid_cond_mrkt_div_code=J&fid_input_iscd=132030
+2026-08-31 21:56:04 - KISTradingSystem - DEBUG - 📊 가격 조회 중: 114800
+2026-08-31 21:56:04 - KISTradingSystem - ERROR - ❌ 가격 조회 실패 (114800): 500 Server Error: Internal Server Error for url: https://openapivts.koreainvestment.com:29443/uapi/domestic-stock/v1/quotations/inquire-price?fid_cond_mrkt_div_code=J&fid_input_iscd=114800
+2026-08-31 21:56:04 - KISTradingSystem - INFO - 조회된 가격: 3개
+2026-08-31 21:56:04 - KISTradingSystem - INFO - 타겟 배분 (growth): {'ETF_09': 0.2, 'ETF_10': 0.25, 'ETF_04': 0.15, 'ETF_02': 0.15, 'ETF_07': 0.15, 'ETF_22': 0.1, 'ETF_29': 0.0}
+2026-08-31 21:56:04 - KISTradingSystem - INFO - ======================================================================
+2026-08-31 21:56:04 - KISTradingSystem - INFO - ✅ 거래 주기 완료
+2026-08-31 21:56:04 - KISTradingSystem - INFO - ======================================================================
