@@ -3,10 +3,14 @@ import os
 import subprocess
 from pathlib import Path
 from apscheduler.schedulers.background import BackgroundScheduler
-from datetime import datetime
-import pytz
+from datetime import datetime, timedelta
 import trading_bot
 import time
+
+def get_kst_time():
+    """UTC+9 시간대(한국시간)로 현재 시간을 반환합니다"""
+    utc_now = datetime.utcnow()
+    return utc_now + timedelta(hours=9)
 
 def push_to_github():
     """GitHub에 거래 데이터를 업로드합니다"""
@@ -37,7 +41,7 @@ def push_to_github():
             return True
 
         # 타임스탬프와 함께 커밋 메시지 생성
-        timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        timestamp = get_kst_time().strftime('%Y-%m-%d %H:%M:%S')
         commit_message = f"Update trading data - {timestamp}"
 
         subprocess.run(['git', 'commit', '-m', commit_message], check=True)
@@ -59,8 +63,9 @@ def push_to_github():
 def trading_job():
     """거래 작업을 실행하고 GitHub에 데이터를 업로드합니다"""
     try:
+        kst_time = get_kst_time()
         print("\n" + "="*50)
-        print(f"거래 작업 시작: {datetime.now(pytz.timezone('Asia/Seoul')).strftime('%Y-%m-%d %H:%M:%S')}")
+        print(f"거래 작업 시작: {kst_time.strftime('%Y-%m-%d %H:%M:%S')}")
         print("="*50)
 
         # 거래 봇 실행
@@ -72,8 +77,9 @@ def trading_job():
         # GitHub에 데이터 푸시
         push_to_github()
 
+        kst_time_end = get_kst_time()
         print("\n" + "="*50)
-        print(f"거래 작업 완료: {datetime.now(pytz.timezone('Asia/Seoul')).strftime('%Y-%m-%d %H:%M:%S')}")
+        print(f"거래 작업 완료: {kst_time_end.strftime('%Y-%m-%d %H:%M:%S')}")
         print("="*50)
 
     except Exception as e:
@@ -83,27 +89,26 @@ def trading_job():
 
 # 스케줄러 설정
 scheduler = BackgroundScheduler()
-kst = pytz.timezone('Asia/Seoul')
 
-# 15:45 KST에 거래 실행
+# 15:45 KST에 거래 실행 (timezone 없이, UTC 시간 변환)
+# 15:45 KST = 06:45 UTC
 scheduler.add_job(
     trading_job,
     'cron',
-    hour=15,
+    hour=6,
     minute=45,
-    timezone=kst,
     id='daily_trading_job'
 )
 
 # 스케줄러 시작
 if __name__ == "__main__":
+    print("📊 KIS 거래 봇 스케줄러 시작...")
     scheduler.start()
-    print("✅ 스케줄러가 시작되었습니다. (매일 15:45 KST에 거래 실행)")
-
     try:
-        # 스케줄러가 계속 실행되도록 유지
+        # 스케줄러를 계속 실행 상태로 유지
         while True:
             time.sleep(1)
     except KeyboardInterrupt:
+        print("\n스케줄러 종료 중...")
         scheduler.shutdown()
-        print("\n스케줄러가 중지되었습니다")
+        print("스케줄러 종료 완료")
