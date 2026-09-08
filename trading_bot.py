@@ -68,11 +68,22 @@ def execute_trade(regime):
     return trade
 
 def update_trading_data(trade):
-    """trading_data.json 업데이트"""
+    """trading_data.json 업데이트 - /app/data/ 또는 로컬 data/ 디렉토리에 저장"""
     try:
+        # Railway 환경에서는 /app/data/, 로컬에서는 ./data/ 사용
+        if os.path.exists('/app'):
+            data_dir = '/app/data'
+        else:
+            data_dir = './data'
+        
+        # data 디렉토리 생성 (없으면)
+        os.makedirs(data_dir, exist_ok=True)
+        
+        data_file = os.path.join(data_dir, 'trading_data.json')
+        
         # 기존 데이터 읽기
-        if os.path.exists('trading_data.json'):
-            with open('trading_data.json', 'r', encoding='utf-8') as f:
+        if os.path.exists(data_file):
+            with open(data_file, 'r', encoding='utf-8') as f:
                 data = json.load(f)
         else:
             data = {
@@ -96,24 +107,16 @@ def update_trading_data(trade):
         data['portfolio_value'] = 10000000 + (len(data['trades']) * 50000)
         
         # 저장
-        with open('trading_data.json', 'w', encoding='utf-8') as f:
+        with open(data_file, 'w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
         
-        print("✅ trading_data.json 업데이트 완료")
+        print(f"✅ trading_data.json 업데이트 완료 ({data_file})")
         return True
     except Exception as e:
         print(f"❌ 데이터 저장 오류: {str(e)}")
+        import traceback
+        traceback.print_exc()
         return False
-
-def commit_to_github():
-    """GitHub에 자동 커밋"""
-    try:
-        os.system('git add trading_data.json')
-        os.system(f'git commit -m "자동 거래 기록 업데이트 - {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}"')
-        os.system('git push')
-        print("🔄 GitHub에 커밋 완료")
-    except Exception as e:
-        print(f"⚠️ GitHub 커밋 오류: {str(e)}")
 
 def main():
     """메인 함수"""
@@ -130,11 +133,8 @@ def main():
     # 2. 거래 실행
     trade = execute_trade(regime)
     
-    # 3. 데이터 업데이트
+    # 3. 데이터 업데이트 (scheduler.py가 GitHub 푸시 담당)
     update_trading_data(trade)
-    
-    # 4. GitHub 커밋
-    commit_to_github()
     
     print(f"\n✅ 거래 완료!")
 
