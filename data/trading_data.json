@@ -1,6 +1,6 @@
 {
-  "portfolio_value": 10150000,
-  "total_return": 1.5,
+  "portfolio_value": 10200000,
+  "total_return": 2.0,
   "trades": [
     {
       "symbol": "SPY",
@@ -24,6 +24,14 @@
       "quantity": 10,
       "price": 450.0,
       "timestamp": "2026-09-11T06:45:00.105985",
+      "regime": "Neutral"
+    },
+    {
+      "symbol": "SPY",
+      "type": "BUY",
+      "quantity": 10,
+      "price": 450.0,
+      "timestamp": "2026-09-12T06:45:00.137426",
       "regime": "Neutral"
     }
   ]
